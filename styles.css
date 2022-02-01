@@ -1,0 +1,65 @@
+body {
+  background-image: linear-gradient(to right, #ffadad, #ffdac7);
+  color: #1a5f7a;
+  font-family: "Comforter";
+}
+
+h1 {
+  font-size: 8rem;
+  font-weight: 900;
+  font-stretch: expanded;
+  margin-bottom: 40px;
+  text-shadow: 5px 7px #ffc900;
+}
+
+p {
+  font-size: 3rem;
+  font-weight: bold;
+  text-shadow: 3px 3px 5px #fe9898;
+}
+
+.container {
+  margin: auto;
+  width: 70%;
+  text-align: center;
+  height: 70%;
+}
+
+button {
+  color: #d22779;
+  border: none;
+  border-radius: 5%;
+  font-family: "Press Start 2P";
+  font-size: 1.1rem;
+  line-height: 1.5;
+  padding: 10px 15px;
+  text-align: center;
+  margin-bottom: 50px;
+  box-shadow: 10px 10px 5px #fe9898;
+  width: 300px;
+  cursor: pointer;
+}
+
+.dice {
+  margin: 5%;
+  display: inline-block;
+  text-align: center;
+}
+
+.dice-image {
+  background-color: #ffff;
+  border-radius: 10%;
+  box-shadow: 10px 10px 5px #fe9898;
+  width: 60px;
+}
+
+footer {
+  font-family: "Nunito", sans-serif;
+  font-size: 0.8rem;
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.hidden {
+  display: none;
+}
