@@ -6,8 +6,6 @@ const player2 = document.querySelector(".player2");
 
 // const container = document.querySelector("");
 
-window.onload = () => document.getElementById("BornToRoll").play();
-
 const diceRoll = () => Math.floor(Math.random() * 6) + 1;
 
 button.addEventListener("click", function (e) {
@@ -15,6 +13,7 @@ button.addEventListener("click", function (e) {
 });
 
 const insertNewDice = function () {
+  document.getElementById("BornToRoll").play();
   document
     .querySelectorAll(".dice-image")
     .forEach((e) => e.classList.add("hidden"));
