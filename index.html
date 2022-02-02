@@ -1,12 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <!-- <audio
-      src="/audio/Roll.mp3"
-      id="BornToRoll"
-      loop="loop"
-      autoplay="autoplay"
-    ></audio> -->
+    <audio src="/audio/Roll.mp3" id="BornToRoll" loop="loop"></audio>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -20,6 +15,11 @@
     <!-- Favicon -->
     <link rel="icon" href="favicon.ico?v=2" />
     <title>Rollin' Dices</title>
+    <!-- font awesome incons -->
+    <script
+      src="https://kit.fontawesome.com/88171c5987.js"
+      crossorigin="anonymous"
+    ></script>
     <!-- Stylesheet -->
     <link rel="stylesheet" href="styles.css" />
     <!-- JS Script -->
@@ -31,27 +31,43 @@
       <div class="container blur-out">
         <h1>Rollin' Dices</h1>
         <div class="button">
-          <button>keep rollin'</button>
+          <button class="btn-roll">keep rollin'</button>
         </div>
-        <div class="player1 dice">
-          <img id="dice1" class="dice-image" src="images/dice-6.png" />
-          <p>Player 1</p>
+        <div class="dice player1">
+          <span class="points novisibility">0</span>
+          <img class="dice-image" src="images/dice-6.png" />
+          <p class="name">Homie 1</p>
         </div>
-        <div class="player2 dice">
-          <img id="dice2" class="dice-image" src="images/dice-6.png" />
-          <p>Player 2</p>
+        <div class="dice player2">
+          <span class="points novisibility">0</span>
+          <img class="dice-image" src="images/dice-6.png" />
+          <p class="name">Homie 2</p>
         </div>
       </div>
-      <div class="name-input">
+      <div class="container-input">
         <p>Enter your names, homies!</p>
         <form class="form-names" action="">
-          <label for=""></label>
-          <input class="input-names" type="text" placeholder="Player 1" />
+          <input class="input-name name1" type="text" placeholder="Player 1" />
 
-          <input class="input-names" type="text" placeholder="Player 2" />
+          <input class="input-name name2" type="text" placeholder="Player 2" />
         </form>
+        <button class="btn-dice">
+          <i class="btn-dice-icon fas fa-dice-six"></i>
+        </button>
       </div>
-      <button class="btn-names" type="submit">Roll it</button>
+      <div class="container-winner hidden">
+        <!-- <p>
+          Yo, <br />
+          Homie <br />
+          1 <br />
+          wins<br />
+          <br />
+          🎲 🎲 🎲
+        </p> -->
+        <button class="btn-dice">
+          <i class="btn-dice-icon fas fa-dice-six"></i>
+        </button>
+      </div>
     </main>
     <footer>🎲 Tim Zen 2022 🎲</footer>
   </body>
