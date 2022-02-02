@@ -1,40 +1,44 @@
 "use strict";
 
+const container = document.querySelector(".container");
 const button = document.querySelector("button");
 const player1 = document.querySelector(".player1");
 const player2 = document.querySelector(".player2");
 const dice1 = document.querySelector("#dice1");
 const dice2 = document.querySelector("#dice2");
 
-// const container = document.querySelector("");
+// Init
+
+const getPlayersNames = function () {
+  // const player1Name = prompt("🎲 Name Player 1 🎲");
+  // const player2Name = prompt("🎲 Name Player 2 🎲");
+  // console.log("!");
+  // if (!player1Name || !player2Name) {
+  //   alert("🎲 You must enter a name! 🎲");
+  // }
+};
+
+const init = function () {
+  getPlayersNames();
+};
+
+init();
+
+// Dice roll
 
 const diceRoll = () => Math.floor(Math.random() * 6) + 1;
 
-button.addEventListener("click", function (e) {
-  changeDice();
-});
+// Change dices and display
 
-// const insertNewDice = function () {
-//   document.getElementById("BornToRoll").play();
-//   document
-//     .querySelectorAll(".dice-image")
-//     .forEach((e) => e.classList.add("hidden"));
-//   document.querySelectorAll(".dice-image").forEach((e) => e.remove());
-//   player1.insertAdjacentHTML(
-//     "afterbegin",
-//     `
-//     <img class="dice-image" src="images/dice-${diceRoll()}.png" />
-//     `
-//   );
-//   player2.insertAdjacentHTML(
-//     "afterbegin",
-//     `
-//         <img class="dice-image" src="images/dice-${diceRoll()}.png" />
-//         `
-//   );
-// };
+const changeDices = () => {
+  const newDice1 = diceRoll();
+  const newDice2 = diceRoll();
 
-const changeDice = () => {
-  dice1.setAttribute("src", `images/dice-${diceRoll()}.png`);
-  dice2.setAttribute("src", `images/dice-${diceRoll()}.png`);
+  dice1.src = `images/dice-${newDice1}.png`;
+  dice2.src = `images/dice-${newDice2}.png`;
 };
+
+button.addEventListener("click", function (e) {
+  dice1.classList.remove("hidden");
+  changeDices();
+});

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <audio
+    <!-- <audio
       src="/audio/Roll.mp3"
       id="BornToRoll"
       loop="loop"
       autoplay="autoplay"
-    ></audio>
+    ></audio> -->
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -27,20 +27,32 @@
   </head>
 
   <body>
-    <div class="container">
-      <h1>Rollin' Dices</h1>
-      <div class="button">
-        <button>keep it rollin'</button>
+    <main>
+      <div class="container blur-out">
+        <h1>Rollin' Dices</h1>
+        <div class="button">
+          <button>keep rollin'</button>
+        </div>
+        <div class="player1 dice">
+          <img id="dice1" class="dice-image" src="images/dice-6.png" />
+          <p>Player 1</p>
+        </div>
+        <div class="player2 dice">
+          <img id="dice2" class="dice-image" src="images/dice-6.png" />
+          <p>Player 2</p>
+        </div>
       </div>
-      <div class="player1 dice">
-        <img id="dice1" class="dice-image" src="images/dice-1.png" />
-        <p>Player 1</p>
+      <div class="name-input">
+        <p>Enter your names, homies!</p>
+        <form class="form-names" action="">
+          <label for=""></label>
+          <input class="input-names" type="text" placeholder="Player 1" />
+
+          <input class="input-names" type="text" placeholder="Player 2" />
+        </form>
       </div>
-      <div class="player2 dice">
-        <img id="dice2" class="dice-image" src="images/dice-1.png" />
-        <p>Player 2</p>
-      </div>
-    </div>
+      <button class="btn-names" type="submit">Roll it</button>
+    </main>
     <footer>🎲 Tim Zen 2022 🎲</footer>
   </body>
 </html>
