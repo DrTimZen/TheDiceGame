@@ -183,7 +183,7 @@ footer {
 
 /* Mobile design */
 
-@media (max-width: 500px) {
+@media screen and (max-width: 500px) {
   main {
     margin-top: 10%;
     width: 100%;
