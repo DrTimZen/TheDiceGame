@@ -17,7 +17,7 @@ const audio = document.getElementById("BornToRoll");
 const containerInput = document.querySelector(".container-input");
 const containerWinner = document.querySelector(".container-winner");
 const winnerName = document.querySelector("#winner");
-
+const buttonReset = document.querySelector(".reset");
 // Show score
 
 // Dice roll
@@ -82,6 +82,20 @@ const showWinner = function (winner) {
         </p>
         `
   );
+
+  player1Score.classList.add("novisibility");
+  player2Score.classList.add("novisibility");
+};
+
+// Game reset
+
+const reset = function () {
+  pointsPlayer1 = pointsPlayer2 = 0;
+
+  containerWinner.classList.add("hidden");
+  containerInput.classList.remove("hidden");
+
+  containerWinner.querySelector("p").remove();
 };
 
 // Event Listener
@@ -98,6 +112,8 @@ buttonNameInput.addEventListener("click", function (e) {
 });
 
 // Button Rolling Dices
-button.addEventListener("click", function (e) {
-  rollDices();
-});
+button.addEventListener("click", rollDices);
+
+// Button reset
+
+buttonReset.addEventListener("click", reset);
