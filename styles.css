@@ -186,7 +186,7 @@ footer {
 @media screen and (max-width: 500px) {
   main {
     margin-top: 10%;
-    width: 100%;
+    height: 80%;
   }
 
   h1 {
@@ -273,6 +273,7 @@ footer {
     top: 90%;
     margin-left: auto;
     margin-right: auto;
+    display: none;
   }
 
   .container-winner {
