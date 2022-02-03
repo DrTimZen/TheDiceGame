@@ -41,10 +41,6 @@ const rollDices = () => {
   pointsPlayer2 += newDice2;
 
   insertScore();
-  console.log(pointsPlayer2);
-
-  if (pointsPlayer1 === 20) showWinner(player1.textContent);
-  if (pointsPlayer2 === 20) showWinner(player2.textContent);
 };
 
 const insertScore = function () {
@@ -55,6 +51,9 @@ const insertScore = function () {
   // insert score into HTML
   player1Score.textContent = pointsPlayer1;
   player2Score.textContent = pointsPlayer2;
+
+  if (pointsPlayer1 >= 20) showWinner(player1.textContent);
+  if (pointsPlayer2 >= 20) showWinner(player2.textContent);
 };
 
 const hideNameInput = function () {
