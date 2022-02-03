@@ -189,6 +189,7 @@ footer {
   color: #d22779;
   background-color: transparent;
   cursor: pointer;
+  transition: all 2s;
 }
 
 /* Mobile design */
@@ -307,5 +308,6 @@ footer {
     position: static;
     color: #d22779;
     background-color: transparent;
+    font-size: 0.7rem;
   }
 }

@@ -61,10 +61,12 @@ const insertScore = function () {
 const hideNameInput = function () {
   containerInput.classList.add("hidden");
   container.classList.remove("blur-out");
+  buttonAudioControl.classList.remove("blur-out");
 };
 
 const showWinner = function (winner) {
   container.classList.add("blur-out");
+  buttonAudioControl.classList.add("blur-out");
   containerWinner.classList.remove("hidden");
 
   containerWinner.insertAdjacentHTML(
