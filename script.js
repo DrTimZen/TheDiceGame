@@ -30,7 +30,7 @@ const diceRoll = () => Math.floor(Math.random() * 6) + 1;
 
 let pointsPlayer1 = 0;
 let pointsPlayer2 = 0;
-let audioState = true;
+let audioState = false;
 
 const rollDices = () => {
   const newDice1 = diceRoll();
@@ -91,7 +91,6 @@ const showWinner = function (winner) {
 
 const reset = function () {
   pointsPlayer1 = pointsPlayer2 = 0;
-  console.log(pointsPlayer2);
   containerWinner.classList.add("hidden");
   containerInput.classList.remove("hidden");
 
@@ -111,10 +110,10 @@ const audioControl = function () {
   }
 };
 
-const audioButton = function () {
+const audioIcon = function () {
   buttonAudioControl.firstElementChild.className = "";
   buttonAudioControl.firstElementChild.className = `fas fa-volume-${
-    audioState ? "up" : "mute"
+    audioState ? "mute" : "up"
   }`;
 
   audioControl();
@@ -126,8 +125,7 @@ const audioButton = function () {
 buttonNameInput.addEventListener("click", function () {
   player1.textContent = name1.value;
   player2.textContent = name2.value;
-  audio.src = "/audio/Roll.mp3";
-  audio.play();
+  audioIcon();
   hideNameInput();
   name1.value = name2.value = "";
 });
@@ -141,4 +139,4 @@ buttonReset.addEventListener("click", reset);
 
 // Button pause music
 
-buttonAudioControl.addEventListener("click", audioButton);
+buttonAudioControl.addEventListener("click", audioIcon);
