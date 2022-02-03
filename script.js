@@ -18,6 +18,7 @@ const containerInput = document.querySelector(".container-input");
 const containerWinner = document.querySelector(".container-winner");
 const winnerName = document.querySelector("#winner");
 const buttonReset = document.querySelector(".reset");
+const buttonAudioControl = document.querySelector(".audio-control");
 
 // Show score
 
@@ -29,6 +30,7 @@ const diceRoll = () => Math.floor(Math.random() * 6) + 1;
 
 let pointsPlayer1 = 0;
 let pointsPlayer2 = 0;
+let audioState = true;
 
 const rollDices = () => {
   const newDice1 = diceRoll();
@@ -92,21 +94,40 @@ const reset = function () {
   containerInput.classList.remove("hidden");
 
   containerWinner.querySelector("p").remove();
-  audio.src = "";
+  audioState = true;
+  audioControl();
+};
+
+const audioControl = function () {
+  if (audioState) {
+    audio.src = "";
+    audioState = false;
+  } else {
+    audio.src = "/audio/Roll.mp3";
+    audio.play();
+    audioState = true;
+  }
+};
+
+const audioButton = function () {
+  buttonAudioControl.firstElementChild.className = "";
+  buttonAudioControl.firstElementChild.className = `fas fa-volume-${
+    audioState ? "up" : "mute"
+  }`;
+
+  audioControl();
 };
 
 // Event Listener
 
 // Button player names input
-buttonNameInput.addEventListener("click", function (e) {
-  e.preventDefault();
+buttonNameInput.addEventListener("click", function () {
   player1.textContent = name1.value;
   player2.textContent = name2.value;
   audio.src = "/audio/Roll.mp3";
   audio.play();
   hideNameInput();
-  name1.value = "";
-  name2.value = "";
+  name1.value = name2.value = "";
 });
 
 // Button Rolling Dices
@@ -115,3 +136,7 @@ button.addEventListener("click", rollDices);
 // Button reset
 
 buttonReset.addEventListener("click", reset);
+
+// Button pause music
+
+buttonAudioControl.addEventListener("click", audioButton);

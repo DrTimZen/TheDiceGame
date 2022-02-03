@@ -181,6 +181,16 @@ footer {
   transform: translateY(4px);
 }
 
+.audio-control {
+  position: absolute;
+  top: 5%;
+  right: 20%;
+  font-size: 2rem;
+  color: #d22779;
+  background-color: transparent;
+  cursor: pointer;
+}
+
 /* Mobile design */
 
 @media screen and (max-width: 500px) {
@@ -291,5 +301,11 @@ footer {
 
   .btn-dice-icon {
     font-size: 3.5rem;
+  }
+
+  .audio-control {
+    position: static;
+    color: #d22779;
+    background-color: transparent;
   }
 }
