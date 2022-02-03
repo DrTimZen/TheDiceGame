@@ -18,6 +18,7 @@ const containerInput = document.querySelector(".container-input");
 const containerWinner = document.querySelector(".container-winner");
 const winnerName = document.querySelector("#winner");
 const buttonReset = document.querySelector(".reset");
+
 // Show score
 
 // Dice roll
@@ -36,21 +37,17 @@ const rollDices = () => {
   dice1.src = `images/dice-${newDice1}.png`;
   dice2.src = `images/dice-${newDice2}.png`;
 
-  if (newDice1 > newDice2) {
-    pointsPlayer1++;
-  }
+  pointsPlayer1 += newDice1;
+  pointsPlayer2 += newDice2;
 
-  if (newDice1 < newDice2) {
-    pointsPlayer2++;
-  }
+  insertScore();
+  console.log(pointsPlayer2);
 
-  scoreCount();
-
-  if (pointsPlayer1 === 5) showWinner(player1.textContent);
-  if (pointsPlayer2 === 5) showWinner(player2.textContent);
+  if (pointsPlayer1 === 20) showWinner(player1.textContent);
+  if (pointsPlayer2 === 20) showWinner(player2.textContent);
 };
 
-const scoreCount = function () {
+const insertScore = function () {
   // Show score
   player1Score.classList.remove("novisibility");
   player2Score.classList.remove("novisibility");
@@ -91,7 +88,7 @@ const showWinner = function (winner) {
 
 const reset = function () {
   pointsPlayer1 = pointsPlayer2 = 0;
-
+  console.log(pointsPlayer2);
   containerWinner.classList.add("hidden");
   containerInput.classList.remove("hidden");
 
