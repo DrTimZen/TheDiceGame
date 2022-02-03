@@ -140,3 +140,8 @@ buttonReset.addEventListener("click", reset);
 // Button pause music
 
 buttonAudioControl.addEventListener("click", audioIcon);
+
+// stop music when leaving browser
+document.addEventListener("visibilitychange", function () {
+  if (audioState) audioControl();
+});
