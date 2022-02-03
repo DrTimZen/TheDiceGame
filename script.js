@@ -143,5 +143,11 @@ buttonAudioControl.addEventListener("click", audioIcon);
 
 // stop music when leaving browser
 document.addEventListener("visibilitychange", function () {
-  if (audioState) audioControl();
+  if (document.visibilityState === "visible") {
+    audioState = true;
+    audioControl();
+  } else {
+    audioState = true;
+    audioControl();
+  }
 });
