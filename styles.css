@@ -211,7 +211,7 @@ footer {
     margin: auto;
     padding: 10%;
     width: 50%;
-    height: 60%;
+    height: 80%;
     position: absolute;
     top: 15%;
   }
@@ -266,14 +266,6 @@ footer {
   }
 
   footer {
-    font-size: 0.4rem;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    display: none;
   }
 
   .container-winner {
@@ -281,7 +273,7 @@ footer {
     margin: auto;
     padding: 10%;
     width: 50%;
-    height: 60%;
+    height: 80%;
     position: absolute;
     top: 15%;
   }
