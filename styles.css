@@ -266,6 +266,11 @@ footer {
   }
 
   footer {
+    transform: rotate(-90deg);
+    position: absolute;
+    left: 80%;
+    bottom: 40%%;
+    display: inline;
   }
 
   .container-winner {
