@@ -96,6 +96,7 @@ const reset = function () {
   containerInput.classList.remove("hidden");
 
   containerWinner.querySelector("p").remove();
+  audio.src = "";
 };
 
 // Event Listener
@@ -105,6 +106,7 @@ buttonNameInput.addEventListener("click", function (e) {
   e.preventDefault();
   player1.textContent = name1.value;
   player2.textContent = name2.value;
+  audio.src = "/audio/Roll.mp3";
   audio.play();
   hideNameInput();
   name1.value = "";
