@@ -151,3 +151,9 @@ document.addEventListener("visibilitychange", function () {
     audioControl();
   }
 });
+
+// Lock screen
+
+document.addEventListener("onload", function () {
+  window.screen.orientation.lock("portrait");
+});
