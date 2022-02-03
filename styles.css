@@ -265,11 +265,12 @@ footer {
   }
 
   footer {
-    font-size: 0.1rem;
+    font-size: 0.3rem;
     transform: rotate(-90deg);
     position: absolute;
     left: 80%;
-    bottom: 30%%;
+    bottom: 30%;
+    text-align: left;
   }
 
   .container-winner {
