@@ -210,7 +210,7 @@ footer {
     margin: auto;
     padding: 10%;
     width: 50%;
-    height: 80%;
+    height: 70%;
     position: absolute;
     top: 15%;
   }
@@ -269,7 +269,7 @@ footer {
     transform: rotate(-90deg);
     position: absolute;
     left: 80%;
-    bottom: 40%%;
+    bottom: 30%%;
   }
 
   .container-winner {
@@ -277,7 +277,7 @@ footer {
     margin: auto;
     padding: 10%;
     width: 50%;
-    height: 80%;
+    height: 70%;
     position: absolute;
     top: 15%;
   }
