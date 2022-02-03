@@ -299,8 +299,9 @@ footer {
     transform: rotate(-90deg);
     position: absolute;
     left: 80%;
-    bottom: 30%;
+    bottom: 5%;
     text-align: left;
+    width: 30%;
   }
 
   .container-winner {
