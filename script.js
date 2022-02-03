@@ -151,10 +151,3 @@ document.addEventListener("visibilitychange", function () {
     audioControl();
   }
 });
-
-// Lock screen
-
-document.addEventListener("onload", function () {
-  document.body.requestFullscreen();
-  window.screen.orientation.lock("portrait");
-});
