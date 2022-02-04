@@ -20,134 +20,144 @@ const winnerName = document.querySelector("#winner");
 const buttonReset = document.querySelector(".reset");
 const buttonAudioControl = document.querySelector(".audio-control");
 
-// Show score
+class App {
+  pointsPlayer1 = 0;
+  pointsPlayer2 = 0;
+  audioState = false;
 
-// Dice roll
+  constructor() {
+    // Button player names input
+    buttonNameInput.addEventListener(
+      "click",
+      function () {
+        player1.textContent = name1.value;
+        player2.textContent = name2.value;
+        this.setAudioIcon();
+        this.hideNameInput();
+        name1.value = name2.value = "";
+      }.bind(this)
+    );
 
-const diceRoll = () => Math.floor(Math.random() * 6) + 1;
+    // Button Rolling Dices
+    button.addEventListener("click", this.rollDices.bind(this));
 
-// Change dices and display
+    // Button reset
 
-let pointsPlayer1 = 0;
-let pointsPlayer2 = 0;
-let audioState = false;
+    buttonReset.addEventListener("click", this.reset.bind(this));
 
-const rollDices = () => {
-  const newDice1 = diceRoll();
-  const newDice2 = diceRoll();
+    // Button pause music
 
-  dice1.src = `images/dice-${newDice1}.png`;
-  dice2.src = `images/dice-${newDice2}.png`;
+    buttonAudioControl.addEventListener("click", this.setAudioIcon.bind(this));
 
-  pointsPlayer1 += newDice1;
-  pointsPlayer2 += newDice2;
-
-  insertScore();
-};
-
-const insertScore = function () {
-  // Show score
-  player1Score.classList.remove("novisibility");
-  player2Score.classList.remove("novisibility");
-
-  // insert score into HTML
-  player1Score.textContent = pointsPlayer1;
-  player2Score.textContent = pointsPlayer2;
-
-  if (pointsPlayer1 >= 20) showWinner(player1.textContent);
-  if (pointsPlayer2 >= 20) showWinner(player2.textContent);
-};
-
-const hideNameInput = function () {
-  containerInput.classList.add("hidden");
-  container.classList.remove("blur-out");
-  buttonAudioControl.classList.remove("blur-out");
-};
-
-const showWinner = function (winner) {
-  container.classList.add("blur-out");
-  buttonAudioControl.classList.add("blur-out");
-  containerWinner.classList.remove("hidden");
-
-  containerWinner.insertAdjacentHTML(
-    "afterbegin",
-    `
-        <p>
-          Yo, <br />
-          Homie <br />
-          ${winner}<br />
-          wins<br />
-          <br>
-          🎲 🎲 🎲
-        </p>
-        `
-  );
-
-  player1Score.classList.add("novisibility");
-  player2Score.classList.add("novisibility");
-};
-
-// Game reset
-
-const reset = function () {
-  pointsPlayer1 = pointsPlayer2 = 0;
-  containerWinner.classList.add("hidden");
-  containerInput.classList.remove("hidden");
-
-  containerWinner.querySelector("p").remove();
-  audioState = true;
-  audioControl();
-};
-
-const audioControl = function () {
-  if (audioState) {
-    audio.src = "";
-    audioState = false;
-  } else {
-    audio.src = "/audio/Roll.mp3";
-    audio.play();
-    audioState = true;
+    // stop music when leaving browser
+    document.addEventListener(
+      "visibilitychange",
+      this.visibilityChange.bind(this)
+    );
   }
-};
 
-const audioIcon = function () {
-  buttonAudioControl.firstElementChild.className = "";
-  buttonAudioControl.firstElementChild.className = `fas fa-volume-${
-    audioState ? "mute" : "up"
-  }`;
+  // Dice roll
 
-  audioControl();
-};
+  rollDices() {
+    const diceRoll = () => Math.floor(Math.random() * 6) + 1;
 
-// Event Listener
+    const newDice1 = diceRoll();
+    const newDice2 = diceRoll();
 
-// Button player names input
-buttonNameInput.addEventListener("click", function () {
-  player1.textContent = name1.value;
-  player2.textContent = name2.value;
-  audioIcon();
-  hideNameInput();
-  name1.value = name2.value = "";
-});
+    dice1.src = `images/dice-${newDice1}.png`;
+    dice2.src = `images/dice-${newDice2}.png`;
 
-// Button Rolling Dices
-button.addEventListener("click", rollDices);
+    this.pointsPlayer1 += newDice1;
+    this.pointsPlayer2 += newDice2;
 
-// Button reset
-
-buttonReset.addEventListener("click", reset);
-
-// Button pause music
-
-buttonAudioControl.addEventListener("click", audioIcon);
-
-// stop music when leaving browser
-document.addEventListener("visibilitychange", function () {
-  if (document.visibilityState === "visible") {
-    audioState = true;
-    audioControl();
-  } else {
-    audioState = true;
-    audioControl();
+    this.insertScore();
   }
-});
+
+  insertScore() {
+    // Show score
+    player1Score.classList.remove("novisibility");
+    player2Score.classList.remove("novisibility");
+
+    // insert score into HTML
+    player1Score.textContent = this.pointsPlayer1;
+    player2Score.textContent = this.pointsPlayer2;
+
+    if (this.pointsPlayer1 >= 20) this.showWinner(player1.textContent);
+    if (this.pointsPlayer2 >= 20) this.showWinner(player2.textContent);
+  }
+
+  // Show name input field
+  hideNameInput() {
+    containerInput.classList.add("hidden");
+    container.classList.remove("blur-out");
+    buttonAudioControl.classList.remove("blur-out");
+  }
+  // Show winner screen
+  showWinner(winner) {
+    container.classList.add("blur-out");
+    buttonAudioControl.classList.add("blur-out");
+    containerWinner.classList.remove("hidden");
+
+    containerWinner.insertAdjacentHTML(
+      "afterbegin",
+      `
+          <p>
+            Yo, <br />
+            Homie <br />
+            ${winner}<br />
+            wins<br />
+            <br>
+            🎲 🎲 🎲
+          </p>
+          `
+    );
+
+    player1Score.classList.add("novisibility");
+    player2Score.classList.add("novisibility");
+  }
+
+  // Game reset
+
+  reset() {
+    this.pointsPlayer1 = this.pointsPlayer2 = 0;
+    containerWinner.classList.add("hidden");
+    containerInput.classList.remove("hidden");
+
+    containerWinner.querySelector("p").remove();
+    this.audioState = true;
+    this.audioControl();
+  }
+
+  // Switches audio on/off
+  audioControl() {
+    if (this.audioState) {
+      audio.src = "";
+      this.audioState = false;
+    } else {
+      audio.src = "/audio/Roll.mp3";
+      audio.play();
+      this.audioState = true;
+    }
+  }
+  // Changes audio icon
+  setAudioIcon() {
+    buttonAudioControl.firstElementChild.className = "";
+    buttonAudioControl.firstElementChild.className = `fas fa-volume-${
+      this.audioState ? "mute" : "up"
+    }`;
+
+    this.audioControl();
+  }
+
+  visibilityChange() {
+    if (document.visibilityState === "visible") {
+      this.audioState = true;
+      this.audioControl();
+    } else {
+      this.audioState = true;
+      this.audioControl();
+    }
+  }
+}
+
+new App();
