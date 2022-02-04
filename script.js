@@ -60,16 +60,14 @@ class App {
 
   rollDices() {
     const diceRoll = () => Math.floor(Math.random() * 6) + 1;
+    const dice1 = diceRoll();
+    const dice2 = diceRoll();
 
-    const newDice1 = diceRoll();
-    const newDice2 = diceRoll();
-
-    dice1.src = `images/dice-${newDice1}.png`;
-    dice2.src = `images/dice-${newDice2}.png`;
+    dice1.src = `images/dice-${dice1}.png`;
+    dice2.src = `images/dice-${dice2}.png`;
 
     this.pointsPlayer1 += newDice1;
     this.pointsPlayer2 += newDice2;
-
     this.insertScore();
   }
 
@@ -92,25 +90,14 @@ class App {
     container.classList.remove("blur-out");
     buttonAudioControl.classList.remove("blur-out");
   }
+
   // Show winner screen
   showWinner(winner) {
     container.classList.add("blur-out");
     buttonAudioControl.classList.add("blur-out");
     containerWinner.classList.remove("hidden");
 
-    containerWinner.insertAdjacentHTML(
-      "afterbegin",
-      `
-          <p>
-            Yo, <br />
-            Homie <br />
-            ${winner}<br />
-            wins<br />
-            <br>
-            🎲 🎲 🎲
-          </p>
-          `
-    );
+    containerWinner.querySelector("#winner").textContent = winner;
 
     player1Score.classList.add("novisibility");
     player2Score.classList.add("novisibility");
@@ -123,7 +110,7 @@ class App {
     containerWinner.classList.add("hidden");
     containerInput.classList.remove("hidden");
 
-    containerWinner.querySelector("p").remove();
+    containerWinner.closest("p").remove();
     this.audioState = true;
     this.audioControl();
   }
