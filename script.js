@@ -6,8 +6,8 @@ const player1Score = document.querySelector(".player1 .points");
 const player2Score = document.querySelector(".player2 .points");
 const player1 = document.querySelector(".player1 .name");
 const player2 = document.querySelector(".player2 .name");
-const dice1 = document.querySelector(".player1 .dice-image");
-const dice2 = document.querySelector(".player2 .dice-image");
+const diceImg1 = document.querySelector(".player1 .dice-image");
+const diceImg2 = document.querySelector(".player2 .dice-image");
 const buttonNameInput = document.querySelector(
   ".container-input .btn-dice-icon "
 );
@@ -63,11 +63,11 @@ class App {
     const dice1 = diceRoll();
     const dice2 = diceRoll();
 
-    dice1.src = `images/dice-${dice1}.png`;
-    dice2.src = `images/dice-${dice2}.png`;
+    diceImg1.src = `images/dice-${dice1}.png`;
+    diceImg2.src = `images/dice-${dice2}.png`;
 
-    this.pointsPlayer1 += newDice1;
-    this.pointsPlayer2 += newDice2;
+    this.pointsPlayer1 += dice1;
+    this.pointsPlayer2 += dice2;
     this.insertScore();
   }
 
@@ -110,7 +110,6 @@ class App {
     containerWinner.classList.add("hidden");
     containerInput.classList.remove("hidden");
 
-    containerWinner.closest("p").remove();
     this.audioState = true;
     this.audioControl();
   }
